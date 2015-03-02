@@ -1,19 +1,29 @@
 ### wp-vagrant-docker
 
-use ```vagrant up --provider=docker``` to start machines
+## Provision
+
+run ```vagrant up --provider=docker --no-parallel``` to start machines
 
 add ```--debug``` option for debugging
 
-use ```vagrant ssh wordpress``` to ssh to main container
+## Pause
 
-use ```vagrant halt``` to power off machine
+run ```vagrant halt``` to power off machines
 
-to access proxy machine that hosts containers on MacOS use ```vagrant global-status```
+run ```vagrant global-status``` to find proxy machine id
 
-copy id from machine ```default```
+run ```vagrant suspend <proxy maxine id>```
 
-you can use id of machine to ```halt``` ```destroy``` or ```ssh``` adding id as last parameter in command
+## Vagrant up after Pause
 
-example ```vagrant ssh 83ae56c```
+run ```vagrant up --provider=docker --no-parallel``` to start machines
 
-use ```vagrant destroy``` to remove machines
+## Teardown
+
+run ```vagrant destroy```
+
+run ```vagrant global-status``` to find proxy machine id
+
+run ```vagrant destroy <proxy maxine id>```
+
+
