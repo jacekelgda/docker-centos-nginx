@@ -10,4 +10,25 @@ Vagrant.configure(2) do |config|
       d.volumes = ["/vagrant/www/:/var/www:rw"]
     end
   end
+
+  config.vm.define "mysql" do |a|
+      a.vm.provider "docker" do |d|
+        d.name = "mysql"
+        d.build_dir = "./docker/containers/mysql"
+        d.vagrant_vagrantfile = "./proxy/Vagrantfile.proxy"
+        d.ports = ["3306:3306"]
+        d.create_args = [
+          "--link",
+          "nginx:mysql",
+          "-e",
+          "MYSQL_ROOT_PASSWORD=test",
+          "-e",
+          "MYSQL_DATABASE=test",
+          "-e",
+          "MYSQL_USER=test",
+          "-e",
+          "MYSQL_PASSWORD=test"
+        ]
+      end
+    end
 end
