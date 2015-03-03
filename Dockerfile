@@ -1,1 +1,1 @@
-FROM nginx
+FROM million12/centos-supervisor
