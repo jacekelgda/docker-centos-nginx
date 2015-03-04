@@ -1,4 +1,5 @@
 .idea/
 .vagrant/
 proxy/.vagrant/
+proxy/Vagrantfile.proxy
 docker-experiments
