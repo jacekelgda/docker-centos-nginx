@@ -14,7 +14,4 @@ mkdir -p /data/conf/nginx/hosts.d
 mkdir -p /data/conf/nginx/nginx.d
 chmod 711 /data/conf/nginx
 
-mkdir -p /data/www/default
-echo "default vhost # created on $(date)" > /data/www/default/index.html
-
-chown -R www:www /data/www
+chown -R www:www /var/www
